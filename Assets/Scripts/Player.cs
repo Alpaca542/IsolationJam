@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public float speed;
-    public bool AmIflying = false;
+    public bool CanIJump = false;
     public float jump = 1;
     public LayerMask groundlayer;
     void Start()
@@ -21,16 +21,15 @@ public class Player : MonoBehaviour
 
         float dirX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(dirX*speed,rb.velocity.y );
-        if(Physics2D.Raycast(transform.position,Vector2.down,30f,groundlayer))
+        if(Physics2D.Raycast(transform.position, -transform.up, 1f, groundlayer))
         {
-            AmIflying = false;
-            
+            CanIJump = true;
         }
         else
         {
-            AmIflying = true;
+            CanIJump = false;
         }
-        Debug.DrawRay(transform.position, Vector2.up,Color.white,10f);
+
         if (Mathf.Abs(dirX) > 0.2f)
         {
             if (dirX < 0 && transform.rotation != Quaternion.Euler(0, 180, 0) && transform.rotation != Quaternion.Euler(0, -180, 0))
@@ -47,9 +46,10 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("AmIWalking", false);
         }
-        if(Input.GetKeyDown(KeyCode.Space)&&!AmIflying) {
-            rb.AddForce(Vector2.up * jump);
-        
+
+        if(Input.GetKeyDown(KeyCode.Space) && CanIJump)
+        {
+            rb.AddForce(transform.up * jump);
         }
     }
 }
