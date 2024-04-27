@@ -16,9 +16,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         float dirX = Input.GetAxis("Horizontal");
-        float dirY = Input.GetAxis("Vertical");
-        rb.velocity = new Vector2(dirX, dirY) * speed;
-        if (Mathf.Abs(dirX) > 0.2f || Mathf.Abs(dirY) > 0.2f)
+        rb.velocity = new Vector2(dirX*speed,rb.velocity.y );
+        if (Mathf.Abs(dirX) > 0.2f)
         {
             if (dirX < 0 && transform.rotation != Quaternion.Euler(0, 180, 0) && transform.rotation != Quaternion.Euler(0, -180, 0))
             {
