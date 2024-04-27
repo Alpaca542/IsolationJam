@@ -28,24 +28,26 @@ public class Enemy : MonoBehaviour
         if (hit && !IAmFLying)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            //transform.position = new Vector2(transform.position.x, hit.point.y+0.5f);
+            transform.position = new Vector2(transform.position.x, hit.point.y+0.5f);
         }
         RaycastHit2D hit2 = Physics2D.Raycast(transform.position, -transform.right, 0.7f, groundlayer);
         RaycastHit2D hit3 = Physics2D.Raycast(transform.position, transform.right, 0.7f, groundlayer);
         if (hit2 || hit3)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            MyAgent.updatePosition = false;
+            rb.velocity = new Vector2((Player.transform.position.x-transform.position.x)*6, rb.velocity.y);
             CancelInvoke(nameof(NoFlyInvoke));
             Invoke(nameof(NoFlyInvoke), 0.1f);
             if (!IAmFLying)
             {
-                rb.AddForce(transform.up * 6000);
+                rb.AddForce(transform.up * 1000);
             }
             IAmFLying = true;
         }
     }
     public void NoFlyInvoke()
     {
+        MyAgent.updatePosition = true;
         IAmFLying = false;
     }
 }
