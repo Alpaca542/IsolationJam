@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Builder : MonoBehaviour
 {
     public GameObject[] buildingPrefabs;
+    public LayerMask UiLayer;
     public bool IsBuildingStarted = false;
     public GameObject CurrentBuilding;
     public void OnBuildingStart(int BuildingNumber)
     {
+        Destroy(CurrentBuilding);
         IsBuildingStarted = true;
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         CurrentBuilding = Instantiate(buildingPrefabs[BuildingNumber], mouseWorldPos, Quaternion.identity);
@@ -30,7 +34,8 @@ public class Builder : MonoBehaviour
             }
             if (Input.GetMouseButton(0))
             {
-                if (!CurrentBuilding.GetComponent<BuildingTriggerDetector>().AmITriggered)
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward * 10);
+                if (!CurrentBuilding.GetComponent<BuildingTriggerDetector>().AmITriggered && !EventSystem.current.IsPointerOverGameObject())
                 {
                     CurrentBuilding.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
                     CurrentBuilding.GetComponent<BoxCollider2D>().isTrigger = false;
