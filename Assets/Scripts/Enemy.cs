@@ -20,29 +20,17 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        MyAgent.SetDestination(Player.transform.position);
-    }
-    private void LateUpdate()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 5f, groundlayer);
-        if (hit && !IAmFLying)
+        RaycastHit2D hitPlayer = Physics2D.Raycast(Player.transform.position, Vector2.down, 50f, groundlayer);
+        RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position, Vector2.down, 50f, groundlayer);
+        if ((Mathf.Abs(hitEnemy.point.y - transform.position.y) > 0.5f)&& (Player.transform.position.y < transform.position.y))
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            //transform.position = new Vector2(transform.position.x, hit.point.y+0.5f);
+            MyAgent.SetDestination(new Vector2(hitEnemy.point.x, hitEnemy.point.y));
         }
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, -transform.right, 0.7f, groundlayer);
-        RaycastHit2D hit3 = Physics2D.Raycast(transform.position, transform.right, 0.7f, groundlayer);
-        if (hit2 || hit3)
+        else
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-            CancelInvoke(nameof(NoFlyInvoke));
-            Invoke(nameof(NoFlyInvoke), 0.1f);
-            if (!IAmFLying)
-            {
-                rb.AddForce(transform.up * 6000);
-            }
-            IAmFLying = true;
+            MyAgent.SetDestination(new Vector2(hitPlayer.point.x, hitPlayer.point.y));
         }
+
     }
     public void NoFlyInvoke()
     {
