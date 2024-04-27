@@ -24,7 +24,7 @@ public class Builder : MonoBehaviour
         {
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             CurrentBuilding.transform.position = mouseWorldPos;
-            if (CurrentBuilding.GetComponent<BuildingTriggerDetector>().AmITriggered)
+            if (CurrentBuilding.GetComponent<BuildingTriggerDetector>().AmITriggered || EventSystem.current.IsPointerOverGameObject())
             {
                 CurrentBuilding.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 100);
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingTriggerDetector : MonoBehaviour
 {
     public bool AmITriggered;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         AmITriggered = true;
     }
