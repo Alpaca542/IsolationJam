@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
         RaycastHit2D hit3 = Physics2D.Raycast(transform.position, transform.right, 0.7f, groundlayer);
         if (hit2 || hit3)
         {
-            MyAgent.updatePosition = false;
             rb.velocity = new Vector2(0, rb.velocity.y);
             CancelInvoke(nameof(NoFlyInvoke));
             Invoke(nameof(NoFlyInvoke), 0.1f);
@@ -47,7 +46,6 @@ public class Enemy : MonoBehaviour
     }
     public void NoFlyInvoke()
     {
-        MyAgent.updatePosition = true;
         IAmFLying = false;
     }
 }
