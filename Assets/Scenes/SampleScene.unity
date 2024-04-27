@@ -131,6 +131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 510340933676306276, guid: fb1727bdd40654b178bb128da896f71c,
+        type: 3}
+      propertyPath: groundlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1071830134978249334, guid: fb1727bdd40654b178bb128da896f71c,
         type: 3}
       propertyPath: m_Name
@@ -271,7 +276,7 @@ GameObject:
   - component: {fileID: 303932286}
   - component: {fileID: 303932285}
   - component: {fileID: 303932284}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
