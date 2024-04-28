@@ -20,10 +20,6 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-
-            MyAgent.SetDestination(Player.transform.position);
-
-        
+        MyAgent.SetDestination(Player.transform.position);
     }
-
 }
