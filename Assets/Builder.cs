@@ -23,9 +23,12 @@ public class Builder : MonoBehaviour
     {
         if (IsBuildingStarted)
         {
-            RaycastHit2D hit1 = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.down, 10f, groundlayer);
-            CurrentBuilding.transform.position = new Vector2(hit1.point.x, hit1.point.y+CurrentBuilding.GetComponent<SpriteRenderer>().size.y/2f+0.4f);
-            Debug.Log(hit1.point.y);
+            RaycastHit2D hit1 = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y + 20f), Vector2.down, 30f, groundlayer);
+            if (hit1.collider != null)
+            {
+                CurrentBuilding.transform.position = new Vector2(hit1.point.x, hit1.point.y + CurrentBuilding.GetComponent<SpriteRenderer>().size.y / 2f + 0.4f);
+                Debug.Log(hit1.point.y);
+            }
             if (CurrentBuilding.GetComponent<BuildingTriggerDetector>().AmITriggered || EventSystem.current.IsPointerOverGameObject())
             {
                 CurrentBuilding.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 100);
