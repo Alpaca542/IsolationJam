@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position, Vector2.down, 50f, groundlayer);
         if ((Mathf.Abs(hitEnemy.point.y - transform.position.y) > 1f) && (hitPlayer.point.y <= hitEnemy.point.y))
         {
+            rb.AddForce(Player.transform.position - transform.position);
             MyAgent.SetDestination(new Vector2(hitEnemy.point.x, hitEnemy.point.y));
         }
         else
