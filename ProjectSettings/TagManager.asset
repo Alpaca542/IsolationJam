@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Connector
+  - MotherBoat
   layers:
   - Default
   - TransparentFX

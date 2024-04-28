@@ -24,7 +24,7 @@ public class MotherBoatScript : MonoBehaviour
             float dirY = Input.GetAxis("Vertical");
             foreach (GameObject child in myChildren)
             {
-                rb.velocity =new Vector2(dirX * speed, rb.velocity.y);
+                rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
                 child.GetComponent<Rigidbody2D>().velocity = new Vector2(dirX * speed, dirY * speed);
 
             }

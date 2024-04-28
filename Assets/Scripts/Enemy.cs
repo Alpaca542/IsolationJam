@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public LayerMask groundlayer;
     private void Awake()
     {
+        Player = GameObject.FindGameObjectWithTag("MotherBoat");
         rb = GetComponent<Rigidbody2D>();
         MyAgent = GetComponent<NavMeshAgent>();
         MyAgent.updateUpAxis = false;

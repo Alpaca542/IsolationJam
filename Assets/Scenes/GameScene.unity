@@ -1260,6 +1260,55 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &963843266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963843267}
+  - component: {fileID: 963843268}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &963843267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963843266}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0534332, y: -0.39341435, z: 0.03522984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963843268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963843266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94b77b1c08b04947aade0be68a9eca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 4868748658534945628, guid: c78e3b4dfcfe64b98a61e73910a6621c, type: 3}
+  - {fileID: 8258913987828741848, guid: fb7740686e6fa4c21b8dd2abf6dede6a, type: 3}
+  - {fileID: 2151482767732252364, guid: 33cf0f89b3d5c43cab30fdf7e8b85426, type: 3}
+  MotherBoat: {fileID: 1398639949}
 --- !u!1 &1023406583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1706,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331608702}
   m_CullTransparentMesh: 1
+--- !u!1 &1398639949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7486050915023336937, guid: 9b195da70cea1414783e62e2a2e20f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 5207906406842882326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1422372648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,6 +2692,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 7486050915023336937, guid: 9b195da70cea1414783e62e2a2e20f97,
+        type: 3}
+      propertyPath: m_TagString
+      value: MotherBoat
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2655,3 +2715,4 @@ SceneRoots:
   - {fileID: 1540741930}
   - {fileID: 5207906406842882326}
   - {fileID: 49040209}
+  - {fileID: 963843267}
