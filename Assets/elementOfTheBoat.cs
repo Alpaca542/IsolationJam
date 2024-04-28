@@ -8,6 +8,7 @@ public class elementOfTheBoat : MonoBehaviour
     public bool ConnectedLeft = false;
     public Collider2D rightCollider;
     public Collider2D leftCollider;
+    public GameObject justLikeMe;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,14 @@ public class elementOfTheBoat : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void ConnectRightSide()
     {
-        
+        rightCollider.gameObject.SetActive(false);
+
+
+    }
+    private void ConnectLeftSide()
+    {
+        leftCollider.gameObject.SetActive(false);
     }
 }
