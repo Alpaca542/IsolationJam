@@ -6,13 +6,16 @@ public class ManageInventory : MonoBehaviour
 {
     public RectTransform ButtonSword;
     public RectTransform ButtonHammer;
+    public GameObject BuildPanel;
     public void OnHammerChosen()
     {
+        BuildPanel.SetActive(true);
         ButtonSword.localScale = new Vector3(0.74f, 0.74f, 1f);
         ButtonHammer.localScale = new Vector3(1f, 1f, 1f);
     }
     public void OnSwordChosen()
     {
+        BuildPanel.SetActive(false);
         ButtonHammer.localScale = new Vector3(0.74f, 0.74f, 1f);
         ButtonSword.localScale = new Vector3(1f, 1f, 1f);
     }
