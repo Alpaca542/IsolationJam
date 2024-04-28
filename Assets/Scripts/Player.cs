@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public bool CanIJump = false;
     public float jump = 1;
     public LayerMask groundlayer;
+    public bool AmImoving = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,10 +19,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
         float dirX = Input.GetAxis("Horizontal");
+        if (AmImoving)
+        {
+
         rb.velocity = new Vector2(dirX*speed,rb.velocity.y );
-        if(Physics2D.Raycast(transform.position, -transform.up, 1f, groundlayer))
+        }
+        if (Physics2D.Raycast(transform.position, -transform.up, 1f, groundlayer))
         {
             CanIJump = true;
         }

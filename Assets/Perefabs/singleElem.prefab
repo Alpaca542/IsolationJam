@@ -196,6 +196,7 @@ MonoBehaviour:
   ConnectedLeft: 0
   rightCollider: {fileID: 5295315365564166875}
   leftCollider: {fileID: 6824496130060183629}
+  justLikeMe: {fileID: 0}
 --- !u!50 &6774623484965852384
 Rigidbody2D:
   serializedVersion: 4
@@ -233,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8704145494921783225}
   - component: {fileID: 5295315365564166875}
+  - component: {fileID: 6585532194074215509}
   m_Layer: 0
   m_Name: RightConnector
   m_TagString: Connector
@@ -300,6 +302,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15195891, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6585532194074215509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679935271430942695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381f5412af6635c41b7034712aac00d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmIRight: 1
 --- !u!1 &8529193238117409722
 GameObject:
   m_ObjectHideFlags: 0
